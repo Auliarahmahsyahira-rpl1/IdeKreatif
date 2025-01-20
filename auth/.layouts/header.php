@@ -6,7 +6,7 @@ if ($notification) {
   unset($_SESSION['notification']);
 }
 
-?git>
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
