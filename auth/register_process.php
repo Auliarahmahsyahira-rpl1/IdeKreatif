@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $name = $_POST["name"];
     $password = $_POST["password"];
-    $hashesPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $sql ="INSERT INTO users (username, name, password) values ('$username', '$name', '$hashedPassword')";
     if ($conn->query($sql) === TRUE) {
