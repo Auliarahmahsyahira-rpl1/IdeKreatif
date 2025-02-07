@@ -29,11 +29,11 @@ if (isset($_POST['simpan'])) {
     }
 
      // redirect kembalike halaman kategori
-     header('Location: kategori.php');
-     exit();
- }
+    header('Location: kategori.php');
+    exit();
+}
 
- // Proses penghapusan kategori
+// Proses penghapusan kategori
 if (isset($_POST['delete'])) {
     // Mengambil ID kategori dari parameter URL
     $catID = $_POST['catID'];
@@ -58,4 +58,4 @@ if (isset($_POST['delete'])) {
      header('Location: kategori.php');
      exit();
  }
- 
+
