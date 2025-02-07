@@ -38,6 +38,7 @@ include '.includes/toast_notification.php';
                             <!-- Menampilkan nomor, nama kategori, dan opsi -->
                             <td><?= $index++; ?></td>
                             <td><?= $category['category_name']; ?></td>
+                            <td>
                             <!-- Dropdown untuk opsi Edit dan Delete -->
                             <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle 
@@ -56,7 +57,9 @@ include '.includes/toast_notification.php';
                             </td>
                         </tr>
                         <!-- Modal  untuk Hapus Data Kategori -->
+
                         <!-- Modal Untuk Update Data Kategori>
+                         
                          <?php endwhile; ?>
                         </tbody>
                 </table>
