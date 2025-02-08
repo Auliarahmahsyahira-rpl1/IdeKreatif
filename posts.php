@@ -12,8 +12,8 @@ include '.includes/header.php';
                     <form method="POST" action="proses_post.php" enctype="multipart/form-data">
                         <!-- input untuk judul postingan -->
                          <div class="mb-3">
-                            <label for="post_tittle" class="form-label">Judul Postingan</label>
-                            <input type="text" class="form-control" name="post_tittle" required>
+                            <label for="post_title" class="form-label">Judul Postingan</label>
+                            <input type="text" class="form-control" name="post_title" required>
                          </div>
                          <!-- Input unutk mengunggah gambar -->
                           <div class="mb-3">
