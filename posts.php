@@ -5,7 +5,7 @@ include '.includes/header.php';
 <div class="container-xxl flex-grow-1 container-p-y">
     <!-- Judul Halaman -->
      <div class="row">
-        <!-- frorm untuk menambahkan postingan baru -->
+        <!-- form untuk menambahkan postingan baru -->
          <div class="col-md-10">
             <div class="card mb-4">
                 <div class="card-body">
@@ -18,7 +18,7 @@ include '.includes/header.php';
                          <!-- Input unutk mengunggah gambar -->
                           <div class="mb-3">
                             <label for="formFile" class="form-label">Unggah Gambar</label>
-                            <input class="formFile" type="file" name="image" accept="image/*" />
+                            <input class="form-control" type="file" name="image" accept="image/*" />
                           </div>
                           <!-- Dropdown untuk memilih kategori -->
                            <div class="mb-3">
@@ -29,7 +29,7 @@ include '.includes/header.php';
                                  <?php
                                  $query = "SELECT * FROM categories"; // Query untuk mengambil data kategori
                                  $result = $conn->query($query); // Menjalankan query
-                                 if ($resuult->num_rows > 0) { // Jika terdapat data kategori
+                                 if ($result->num_rows > 0) { // Jika terdapat data kategori
                                     while ($row = $result->fetch_assoc()) { // Iterasi setiap kategori
                                         echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
                                     }

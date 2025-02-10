@@ -49,5 +49,5 @@ if (isset($_POST['simpan'])) {
 
     // Arahkan ke halaman dashboard setelah selesai
     header('Location: dashboard.php');
-    exit();
+    exit(); 
 }
