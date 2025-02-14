@@ -1,53 +1,53 @@
 <?php
-// Menghubungkan filekonfigurasi database
+// menghubungkan file konfigurasi database
 include 'config.php';
 
-// Memulai sesi php
+// memulai sesi php
 session_start();
 
-// Mendapatkan ID pengguna dari sesi
+// mendapatkan id pengguna dari sesi
 $userId = $_SESSION["user_id"];
 
-// Menangani form untuk menambahkan postingan baru
+// menangani form untuk menambahkan postingan baru
 if (isset($_POST['simpan'])) {
-    // Mendapatkan data dari form
-    $postTitle = $_POST["post_title"]; //Judul postingan
-    $content = $_POST["content"]; // Konten postingan
-    $categoryId = $_POST["category_id"]; // Id kategori
+    // mendapatkan data dari form
+    $postTitle = $_POST["post_title"]; // judul postingan
+    $content = $_POST["content"]; // konten postingan
+    $categoryId = $_POST["category_id"]; // id kategori
 
-    // Mengatur direktori penyimpanan file gambar
+    // mengatur direktori penyimpanan file gambar
     $imageDir = "assets/img/uploads/";
-    $imageName = $_FILES["image"]["name"];
-    $imagePath = $imageDir . basename($imageName); // Path lengkap gambar
+    $imageName = $_FILES["image"]["name"]; // nama file gambar
+    $imagePath = $imageDir . basename($imageName); // path lengkap gambar
 
-    // Memindahkan file gambar yang di unggah ke direktori tujuan
+    // memindahkan file gambar yang diunggah ke direktori tujuan
     if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
-        //Jika unggahan berhasil, masukkan
-        // data postingan ke dalam database
+        // jika unggahan berhasil, masukkan
+        // data postingan kedalam database
         $query = "INSERT INTO posts (post_title, content, created_at, category_id, user_id, image_path) VALUES ('$postTitle', '$content', NOW(), $categoryId, $userId, '$imagePath')";
 
-        if ($conn->query($query) == TRUE) {
-            // Notifikasi berhasil jika postingan berhasil
+        if ($conn->query($query) === TRUE) {
+            // notifikasi berhasil jika postingan berhasil ditambahkan
             $_SESSION['notification'] = [
                 'type' => 'primary',
                 'message' => 'Post successfully added.'
             ];
         } else {
-            // Notifikasi eror jika gagal menambahkan postingan
+            // notifikasi error jika gagal menambahkan postingan
             $_SESSION['notification'] = [
                 'type' => 'danger',
-                'message' => 'Error adding post: ' . $conn->erorr
+                'message' => 'Error adding post: '
             ];
         }
     } else {
-        // notifikasi eror jika unggahan gambar gagal
-        $_SESSION['notification'] =[
+        // notifikasi error jika unggahan gambar gagal
+        $_SESSION['notification'] = [
             'type' => 'danger',
             'message' => 'Failed to upload image.'
         ];
     }
 
-    // Arahkan ke halaman dashboard setelah selesai
+    // arahkan ke halaman dashboard setelah selesai
     header('Location: dashboard.php');
-    exit(); 
+    exit();
 }
