@@ -56,7 +56,7 @@ include '.includes/toast_notification.php';
                                       <div class="dropdown-menu">
                                         <!-- Pilihan Edit -->
                                          <a href="edit_post.php?post_id=<?= $post['id_post']; ?>" class="dropdown-item">
-                                            <i class="bx bx-edit-alt-me-2"></i>Edit
+                                            <i class="bx bx-edit-alt me-2"></i>Edit
                                          </a>
                                          <!-- Pilihan delete -->
                                           <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletePost_<?= $post['id_post']; ?>">
